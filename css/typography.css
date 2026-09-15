@@ -1,0 +1,67 @@
+/*
+  Typography
+  ----------
+  Playfair Display carries the emotional statements, Lora carries the
+  reading, Great Vibes is used once or twice as a signature accent —
+  never for a full sentence.
+*/
+
+.script {
+  font-family: var(--font-script);
+  font-size: var(--fs-script);
+  line-height: 1.3;
+  color: var(--color-deep-rose);
+  font-weight: 400;
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  line-height: var(--lh-tight);
+  color: var(--color-deep-rose);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  color: var(--color-deep-rose);
+  font-weight: 600;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: 1.3;
+  color: var(--color-deep-rose);
+  font-weight: 600;
+}
+
+.display-sm {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.4;
+  color: var(--color-deep-rose);
+  font-weight: 600;
+}
+
+.body-lead {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-ink-soft);
+  font-style: italic;
+  max-width: 34ch;
+  margin-inline: auto;
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-ink);
+}
+
+

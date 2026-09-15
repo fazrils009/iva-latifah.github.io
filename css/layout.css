@@ -1,0 +1,298 @@
+/*
+  Layout
+  ------
+  Tata letak kontainer seksi, grid editorial asimetris, dan penataan responsif
+  untuk halaman undangan Iva.
+*/
+
+.container {
+  width: var(--content-width);
+  margin-inline: auto;
+}
+
+main {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--space-2xl);
+}
+
+.section--alt {
+  background: rgba(252, 237, 240, 0.35);
+  border-block: 1px solid rgba(220, 163, 175, 0.2);
+}
+
+.section__intro {
+  max-width: 38rem;
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.section__tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-deep-rose);
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+}
+
+/* ---------- Opening Cover ---------- */
+
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-opening);
+  display: grid;
+  place-items: center;
+  background: var(--color-ivory);
+  background-image: var(--gradient-page);
+  padding: var(--space-lg) var(--space-md);
+  transition: opacity var(--duration-slow) var(--ease-petal),
+              visibility 0s linear var(--duration-slow);
+}
+
+.opening[data-open='true'] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.opening__decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.opening__decor svg {
+  position: absolute;
+  opacity: 0.45;
+  color: var(--color-dusty-pink);
+}
+
+.opening__decor svg:nth-child(1) { top: -4%; left: -6%; width: clamp(140px, 22vw, 260px); }
+.opening__decor svg:nth-child(2) { bottom: -6%; right: -8%; width: clamp(160px, 26vw, 300px); transform: rotate(140deg); }
+.opening__decor svg:nth-child(3) { top: 6%; right: 4%; width: clamp(60px, 8vw, 100px); opacity: 0.35; }
+
+.opening__content {
+  position: relative;
+  text-align: center;
+  max-width: 32rem;
+}
+
+.opening__sub {
+  font-size: var(--fs-small);
+  color: var(--color-ink-muted);
+  font-style: italic;
+  margin-top: var(--space-xs);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  min-height: 92svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding-block: var(--space-xl);
+}
+
+.hero__inner {
+  position: relative;
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__portrait-wrap {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Reasons Grid ---------- */
+
+.reasons__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .reasons__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Polaroids Gallery (Editorial Scrapbook Grid) ---------- */
+
+.polaroids__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg) var(--space-md);
+  padding-block: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .polaroids__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .polaroids__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Date Concepts Grid ---------- */
+
+.concepts__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .concepts__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Letter Section ---------- */
+
+.letter-section {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.envelope-stage {
+  margin-top: var(--space-lg);
+  display: grid;
+  place-items: center;
+  min-height: clamp(280px, 40vw, 360px);
+}
+
+/* ---------- Date Planner Layout ---------- */
+
+.planner__container {
+  max-width: var(--planner-width);
+  margin-inline: auto;
+}
+
+.planner__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .planner__layout {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+/* ---------- Letter Overlay ---------- */
+
+.letter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: grid;
+  place-items: center;
+  padding: var(--space-md);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.letter-overlay[data-visible='true'] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.letter-overlay__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 32, 35, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.letter-card {
+  position: relative;
+  width: var(--letter-width);
+  max-height: min(88svh, 44rem);
+  overflow-y: auto;
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+}
+
+/* ---------- Photo Lightbox Modal ---------- */
+
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: grid;
+  place-items: center;
+  padding: var(--space-md);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-petal),
+              visibility 0s linear var(--duration-base);
+}
+
+.photo-lightbox[data-visible='true'] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity var(--duration-base) var(--ease-petal), visibility 0s;
+}
+
+.lightbox__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 18, 22, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox__card {
+  position: relative;
+  max-width: min(92vw, 36rem);
+  max-height: 90svh;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Music Player ---------- */
+
+.music-player {
+  position: fixed;
+  right: max(var(--space-md), env(safe-area-inset-right));
+  bottom: max(var(--space-md), env(safe-area-inset-bottom));
+  z-index: var(--z-music);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  text-align: center;
+  padding-block: var(--space-xl) var(--space-lg);
+  border-top: 1px solid rgba(220, 163, 175, 0.25);
+  background: var(--color-ivory);
+}

@@ -1,0 +1,421 @@
+/*
+  Responsive & Device Adaptability
+  ---------------------------------
+  Pengaturan layout fluid, compact, dan responsif untuk mobile, tablet,
+  dan desktop. Menjamin tampilan rapi, proporsional, dan nyaman disentuh
+  pada semua ukuran layar.
+*/
+
+/* ================= MOBILE COMPACT (< 640px) ================= */
+@media (max-width: 639px) {
+  .container {
+    width: calc(100% - 1.5rem);
+  }
+
+  /* Hero Section Compact */
+  .hero {
+    min-height: auto;
+    padding-block: var(--space-lg) var(--space-md);
+  }
+
+  .portrait-frame {
+    width: clamp(125px, 36vw, 160px);
+    padding: 4px;
+  }
+
+  .portrait-frame__halo {
+    inset: -6px;
+  }
+
+  .badge {
+    font-size: var(--fs-tiny);
+    padding: 0.3em 0.85em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .body-lead {
+    font-size: var(--fs-body);
+    max-width: 100%;
+  }
+
+  /* Reasons Grid Compact */
+  .reasons__grid {
+    gap: 12px;
+  }
+
+  .reason-card {
+    padding: var(--space-sm);
+  }
+
+  .reason-card__num {
+    font-size: 1.4rem;
+    margin-bottom: 2px;
+  }
+
+  .reason-card__title {
+    font-size: 1.05rem;
+  }
+
+  .reason-card__desc {
+    font-size: var(--fs-small);
+  }
+
+  /* Polaroids Gallery 2-Column Compact Grid */
+  .polaroids__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding-block: var(--space-xs);
+  }
+
+  .polaroid {
+    padding: 8px 8px 14px 8px;
+    transform: rotate(0deg) !important;
+  }
+
+  .polaroid:nth-child(5) {
+    grid-column: span 2;
+    max-width: 260px;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .tape-strip {
+    width: 50px;
+    height: 16px;
+    top: -8px;
+  }
+
+  .polaroid__caption {
+    font-size: 0.78rem;
+    margin-top: 8px;
+    line-height: 1.25;
+  }
+
+  .polaroid__hint {
+    display: none;
+  }
+
+  /* Date Concepts Compact */
+  .concepts__grid {
+    gap: 12px;
+  }
+
+  .concept-card {
+    padding: var(--space-sm);
+  }
+
+  .concept-card__title {
+    font-size: 1.05rem;
+  }
+
+  .concept-card__desc {
+    font-size: var(--fs-small);
+    margin-bottom: var(--space-xs);
+  }
+
+  /* Envelope Stage */
+  .envelope-stage {
+    min-height: 220px;
+    margin-top: var(--space-md);
+  }
+
+  .envelope {
+    --envelope-w: clamp(210px, 76vw, 290px);
+  }
+
+  /* Date Planner Form & Ticket */
+  .planner__layout {
+    gap: var(--space-md);
+  }
+
+  .planner-box {
+    padding: var(--space-sm) var(--space-xs);
+    border-radius: var(--radius-md);
+  }
+
+  .planner__step {
+    margin-bottom: var(--space-md);
+  }
+
+  .planner__label {
+    font-size: 0.98rem;
+    gap: 6px;
+  }
+
+  .planner__sublabel {
+    font-size: var(--fs-tiny);
+  }
+
+  /* Chips compact */
+  .chip-group {
+    gap: 6px;
+  }
+
+  .chip {
+    padding: 0.45em 0.85em;
+    font-size: 0.82rem;
+  }
+
+  /* Vibe Cards: 2 Columns Compact */
+  .vibe-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .vibe-card {
+    padding: 8px;
+    gap: 8px;
+    border-radius: var(--radius-xs);
+  }
+
+  .vibe-card__icon-svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vibe-card__text {
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+
+  /* Ticket Card Compact */
+  .ticket-wrapper {
+    position: static;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .ticket-card {
+    border-radius: var(--radius-sm);
+  }
+
+  .ticket-header {
+    padding: 9px 14px;
+  }
+
+  .ticket-header__title {
+    font-size: 0.78rem;
+  }
+
+  .ticket-body {
+    padding: 12px 14px;
+  }
+
+  .ticket-passenger {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+  }
+
+  .ticket-value {
+    font-size: 0.95rem;
+  }
+
+  .ticket-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .ticket-footer {
+    padding: 10px 14px;
+  }
+
+  .ticket-stamp {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .ticket-barcode {
+    height: 24px;
+  }
+
+  /* Action Buttons Full-Width on Mobile */
+  .btn--whatsapp,
+  .btn--whatsapp-subtle {
+    width: 100%;
+    font-size: 0.92rem;
+    padding: 0.85em 1.2em;
+    justify-content: center;
+  }
+
+  /* Modal Cards */
+  .letter-card {
+    padding: var(--space-md) var(--space-xs);
+    width: min(100% - 1.25rem, 34rem);
+    border-radius: var(--radius-md);
+  }
+
+  .letter-line {
+    font-size: 0.95rem;
+  }
+
+  .letter-line--emphasis {
+    font-size: 1.15rem;
+  }
+
+  /* Floating Music Player */
+  .music-player {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .music-player__btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .music-player__btn .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ================= NARROW PHONES (< 360px) ================= */
+@media (max-width: 359px) {
+  .container {
+    width: calc(100% - 1rem);
+  }
+
+  .polaroids__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .polaroid:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .vibe-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= TABLET (640px - 1023px) ================= */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .container {
+    width: min(100% - 2rem, 58rem);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-block: var(--space-xl) var(--space-lg);
+  }
+
+  .reasons__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .polaroids__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .polaroid:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  .polaroid:nth-child(5) {
+    grid-column: span 2;
+    max-width: 340px;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .concepts__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+  }
+
+  /* Tablet layout: Stack or side-by-side depending on width */
+  @media (max-width: 899px) {
+    .planner__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .ticket-wrapper {
+      position: static;
+      max-width: 440px;
+      margin-inline: auto;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .planner__layout {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--space-md);
+    }
+  }
+}
+
+/* ================= DESKTOP (>= 1024px) ================= */
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 85svh;
+  }
+
+  .reasons__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .polaroids__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg) var(--space-md);
+  }
+
+  .polaroid:nth-child(4) {
+    grid-column: span 1;
+    margin-left: 20%;
+  }
+
+  .polaroid:nth-child(5) {
+    grid-column: span 1;
+    margin-right: 20%;
+  }
+
+  .planner__layout {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-lg);
+  }
+
+  .ticket-wrapper {
+    position: sticky;
+    top: 32px;
+  }
+}
+
+/* ================= LANDSCAPE MOBILE / SHORT VIEWPORTS ================= */
+@media (max-height: 520px) and (orientation: landscape) {
+  .opening__content {
+    transform: scale(0.82);
+  }
+
+  .letter-card {
+    max-height: 94svh;
+    padding: var(--space-sm);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-block: var(--space-md);
+  }
+
+  .portrait-frame {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* ================= TOUCH DEVICES ================= */
+@media (hover: none) {
+  .music-player__label {
+    display: none;
+  }
+
+  /* Tap feedback instead of hover lift */
+  .btn:active,
+  .chip:active,
+  .vibe-card:active {
+    transform: scale(0.97);
+  }
+}

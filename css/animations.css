@@ -1,0 +1,91 @@
+/*
+  Animations
+  ----------
+  Keyframes for the falling heart / petal particle systems and the
+  celebration burst. Particle position/size/speed are randomized per
+  element via inline custom properties set in js/particles.js; the
+  keyframes here just consume those variables.
+*/
+
+.particle-field {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-particles);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  top: -8%;
+  left: var(--x, 50%);
+  width: var(--size, 14px);
+  height: var(--size, 14px);
+  color: var(--tint, var(--color-dusty-pink));
+  opacity: var(--peak-opacity, 0.8);
+  will-change: transform, opacity;
+  animation: particle-fall var(--duration, 9s) linear var(--delay, 0s) forwards;
+}
+
+@keyframes particle-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: var(--peak-opacity, 0.8);
+  }
+  50% {
+    transform: translate3d(var(--drift, 24px), 55vh, 0) rotate(var(--spin, 90deg));
+  }
+  92% {
+    opacity: var(--peak-opacity, 0.8);
+  }
+  100% {
+    transform: translate3d(calc(var(--drift, 24px) * 2), 112vh, 0) rotate(calc(var(--spin, 90deg) * 2));
+    opacity: 0;
+  }
+}
+
+/* Burst particles used for the "Yes" celebration: they launch from the
+   button rather than falling from the top of the viewport. */
+.particle--burst {
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  animation: particle-burst 1.1s var(--ease-petal) var(--delay, 0s) forwards;
+}
+
+@keyframes particle-burst {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.4) rotate(0deg);
+    opacity: 0;
+  }
+  18% {
+    opacity: var(--peak-opacity, 0.9);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(var(--drift, 40px), var(--rise, -120px), 0) scale(0.9) rotate(var(--spin, 60deg));
+    opacity: 0;
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2.4s var(--ease-petal);
+}
+
+@keyframes glow-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(201, 133, 145, 0); }
+  30% { box-shadow: 0 0 60px 12px rgba(247, 214, 220, 0.55); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 133, 145, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    display: none;
+  }
+
+  .glow-pulse {
+    animation: none;
+  }
+}
